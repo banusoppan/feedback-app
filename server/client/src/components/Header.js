@@ -27,7 +27,7 @@ class Header extends Component {
                 <div className="nav-wrapper">
                     <Link 
                         to={this.props.auth?'/survey':'/'} 
-                        className="brand-logo"
+                        className="brand-logo left"
                     >Emaily
                     </Link>
                     <ul id="nav-mobile" className="right " >
@@ -40,6 +40,7 @@ class Header extends Component {
 }
 
 function mapStateProps({ auth }){
+    
     return { auth }
 }
 export default connect(mapStateProps)(Header);

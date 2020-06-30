@@ -5,8 +5,11 @@ import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
 
-const Dashboard = ()=><h2>Dashboard</h2>
-const SurveyNew = ()=><h2>SurveyNew</h2>
+import SurveyNew from './surveys/SurveyNew';
+import Dashboard from './Dashboard'
+//const Dashboard = ()=><h2>Dashboard</h2>
+//const SurveyNew = ()=><h2>SurveyNew</h2>
+const SurveyThanks = ()=><div style={{textAlign:'center'}}><h2>Thnaks for voting!!</h2></div>
 //const Landing = ()=><h2>Landing</h2>
 
 class App extends Component {
@@ -19,12 +22,15 @@ class App extends Component {
             <div>
                
                <BrowserRouter>
-               <div className="container">
-                   <Header/>
-                   <Route exact path="/" component = { Landing } />
-                   <Route exact path="/survey" component = { Dashboard } />
-                   <Route path="/survey/new" component = { SurveyNew } />
-               </div>
+                    <Header/>
+                    <div className="container">
+                        
+                        <Route exact path="/" component = { Landing } />
+                        <Route exact path="/survey" component = { Dashboard } />
+                        <Route exact path="/survey/new" component = { SurveyNew } />
+                        <Route path="/api/survey/:surveyId/:choice" component = { SurveyThanks } />
+                        
+                    </div>
                </BrowserRouter>
             </div>
         );

@@ -4,6 +4,8 @@ const cookieSession = require('cookie-session');
 const keys = require('./config/keys');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const { strict } = require('assert');
+const { ENGINE_METHOD_NONE } = require('constants');
 
 
 mongoose.set('useNewUrlParser', true);
@@ -29,9 +31,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static('client/build'));
