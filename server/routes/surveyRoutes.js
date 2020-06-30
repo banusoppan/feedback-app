@@ -27,7 +27,7 @@ module.exports = (app) => {
             dateSent : Date.now()
         });
         //survey.save();
-        console.log(survey);
+        //console.log(survey);
         const mailer = new Mailer(survey,surveyTemplate(survey));
         try{
             await mailer.send(); 
@@ -74,7 +74,7 @@ module.exports = (app) => {
                 }).exec();
             })
             .value();
-            console.log('reci')
+            //console.log('reci')
             res.send({});
         
         

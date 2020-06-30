@@ -25,6 +25,5 @@ export const createSurvey = (values,history) => async dispatch =>{
 };
 export const fetchSurvey = () => async dispatch =>{
     const res = await axios.get('/api/surveys');
-    console.log("in action "+res.data)
     dispatch({type:FETCH_SURVEYS,payload:res.data});
 }
